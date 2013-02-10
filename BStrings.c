@@ -10,7 +10,7 @@
  inits
  */
 static void __BString_init(bStrObj *this) {
-  this->string = NULL;
+	this->string = NULL;
 	this->length = 0;
 }
 
@@ -24,7 +24,7 @@ static void __BString_initWithBString(bStrObj *this, bStrObj *bStr) {
 	
 	this->length = bStr->length;
 	
-	this->string = (char *)malloc(bStr->length + 1);
+	this->string = (char *)calloc(bStr->length + 1, sizeof(char));
 	
 	if (this->string == NULL) {
 		this->length = 0;
@@ -49,7 +49,7 @@ static void __BString_initWithString(bStrObj *this, const char *string) {
 	
 	if (this->length <= 0) return;
 	
-	this->string = (char *)malloc(this->length + 1);
+	this->string = (char *)calloc(this->length + 1, sizeof(char));
 	
 	if (this->string == NULL) {
 		this->length = 0;
@@ -126,7 +126,7 @@ static bool_t __BString_isEqualToString(bStrObj *this, const char *string) {
  allocates new BString
 */
 extern bStrObj *__BString_alloc(void) {
-	bStrObj *bStr = (bStrObj *)malloc(sizeof(bStrObj));
+	bStrObj *bStr = (bStrObj *)calloc(1, sizeof(bStrObj));
 	
 	if (bStr == NULL) return bStr;
 	
@@ -310,7 +310,7 @@ static bool_t __BMutableString_isEqualToString(bMStrObj *this, const char *strin
  allocates new BMutableString
  */
 extern bMStrObj *__BMutableString_alloc(void) {
-	bMStrObj *bMStr = (bMStrObj *)malloc(sizeof(bMStrObj));
+	bMStrObj *bMStr = (bMStrObj *)calloc(1, sizeof(bMStrObj));
 	
 	if (bMStr == NULL) return bMStr;
 	
