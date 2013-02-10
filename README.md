@@ -10,7 +10,7 @@ Better Strings in C
 #include "BStrings.h"
 
 int main(void) {
-  String *string;
+ 	String *string;
 	MutableString *mutableString;
 	
 	string = BString.alloc(); // allocate new BString
