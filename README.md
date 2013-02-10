@@ -36,3 +36,9 @@ int main(void) {
 	return EXIT_SUCCESS;
 }
 ```
+
+```
+Final string: This is a test; Hello World!
+Length of string: 28
+Test passed!
+```
